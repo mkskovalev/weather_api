@@ -34,4 +34,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/config/app_environment_variables.rb
+# ENV variables
+/config/application.yml
