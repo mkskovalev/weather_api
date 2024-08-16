@@ -28,5 +28,7 @@ module WeatherApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.hosts << "c2a6-2a0b-4140-1208-00-2.ngrok-free.app"
   end
 end
