@@ -1,24 +1,19 @@
-# README
+# Weather API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Описание
 
-Things you may want to cover:
+Weather API предоставляет данные о текущей температуре, а также историческую информацию за последние 24 часа для заданного города. Проект использует `Grape` для создания API, `Delayed::Job` для асинхронной загрузки данных с внешнего API (AccuWeather), и `Rufus::Scheduler` для периодического обновления данных.
 
-* Ruby version
+## Функционал
 
-* System dependencies
+- Получение текущей температуры.
+- Получение почасовой температуры за последние 24 часа.
+- Получение максимальной, минимальной и средней температуры за последние 24 часа.
+- Поиск температуры, ближайшей к заданному времени.
+- Поддержка Swagger-документации для всех API-эндпоинтов.
 
-* Configuration
+### Зависимости
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Ruby 3.x
+- Rails 6.x+
+- PostgreSQL или SQLite
