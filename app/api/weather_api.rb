@@ -66,5 +66,18 @@ module WeatherApi
         { status: 'OK' }
       end
     end
+
+    add_swagger_documentation(
+      info: {
+        title: 'Weather API',
+        description: 'API для получения данных о погоде',
+        contact_name: 'Your Name',
+        contact_email: 'your.email@example.com'
+      },
+      api_version: 'v1',
+      hide_documentation_path: false,
+      mount_path: '/swagger_doc',
+      hide_format: true
+    )
   end
 end
