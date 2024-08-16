@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_08_16_030250) do
   create_table "weather_data", force: :cascade do |t|
-    t.float "temperature"
-    t.datetime "recorded_at"
+    t.float "temperature", null: false
+    t.datetime "recorded_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

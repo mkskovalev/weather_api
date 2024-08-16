@@ -11,11 +11,14 @@ gem 'grape'
 gem 'grape-swagger'
 gem 'delayed_job_active_record'
 gem 'rufus-scheduler'
-gem 'vcr'
-gem 'webmock'
 gem 'redis'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
