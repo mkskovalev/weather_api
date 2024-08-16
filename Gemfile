@@ -12,6 +12,7 @@ gem 'grape-swagger'
 gem 'delayed_job_active_record'
 gem 'rufus-scheduler'
 gem 'redis'
+gem 'daemons'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]

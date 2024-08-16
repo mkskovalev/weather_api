@@ -30,5 +30,7 @@ module WeatherApi
     config.api_only = true
 
     config.hosts << "c2a6-2a0b-4140-1208-00-2.ngrok-free.app"
+
+    config.active_job.queue_adapter = :delayed_job
   end
 end
