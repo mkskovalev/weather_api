@@ -38,10 +38,22 @@ module WeatherApi
         requires :timestamp, type: Integer, desc: 'Unix timestamp'
       end
       get 'by_time' do
-        target_time = Time.at(params[:timestamp])
-        weather_data = WeatherDatum.order("ABS(EXTRACT(EPOCH FROM recorded_at) - #{params[:timestamp]})").first
-        if weather_data
-          { temperature: weather_data.temperature, recorded_at: weather_data.recorded_at }
+        target_time = Time.at(params[:timestamp].to_i)
+        search_period = 86400 # 1 день = 86400 секунд
+      
+        weather_data = WeatherDatum.all
+      
+        closest_weather_data = weather_data.min_by { |record| (record.recorded_at.to_i - target_time.to_i).abs }
+      
+        if closest_weather_data
+          time_difference = (closest_weather_data.recorded_at.to_i - target_time.to_i).abs
+      
+          # Проверяем, находится ли разница в пределах, например, одного дня
+          if time_difference <= search_period
+            { temperature: closest_weather_data.temperature, recorded_at: closest_weather_data.recorded_at }
+          else
+            error!('No data available', 404)
+          end
         else
           error!('No data available', 404)
         end
